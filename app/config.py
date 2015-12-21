@@ -4,6 +4,8 @@ import os
 API_KEY = os.getenv('API_KEY')
 assert API_KEY
 
+CONTENT_TYPE_METHODS = ('POST', 'PUT', 'PATCH', )
+
 DATABASE_URL = os.getenv('DATABASE_URL')
 if DATABASE_URL is None:
     compose_database_host = os.getenv('DB_PORT_5432_TCP_ADDR')
