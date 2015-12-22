@@ -1,9 +1,8 @@
 import json
 
-from urllib.parse import urlparse
 from falcon.testing import TestBase
 from app import api, db
-from app.config import API_KEY, CONTENT_TYPE_METHODS, DATABASE_URL
+from app.config import API_KEY, CONTENT_TYPE_METHODS
 
 
 HEADERS = {
@@ -16,26 +15,6 @@ class APITestCase(TestBase):
 
     def setUp(self):
         super(APITestCase, self).setUp()
-        self.db = db
-        self._empty_tables()
-
-    def _empty_tables(self):
-        parsed = urlparse(DATABASE_URL)
-
-        app_tables_query = """
-        SELECT          table_name
-        FROM            information_schema.tables
-        WHERE           table_schema = 'public' AND
-                        table_catalog = '{0}' AND
-                        table_name != 'schema_version';""".format(parsed.path.strip('/'))
-        cursor = self.db.cursor()
-        cursor.execute(app_tables_query)
-        tables = [r[0] for r in cursor.fetchall()]
-        for t in tables:
-            query = 'TRUNCATE TABLE {0} CASCADE;'.format(t)
-            cursor.execute(query)
-            self.db.commit()
-        cursor.close()
 
     def _simulate_request(self, method, path, data, token=None, **kwargs):
         headers = HEADERS.copy()
