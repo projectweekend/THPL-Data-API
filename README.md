@@ -25,11 +25,49 @@ docker-compose run web nosetests -v --with-coverage --cover-package=app --cover-
 Routes
 ====================
 
+### Get a list of daily stats
+
+**GET:**
+```
+/v1/stats/daily/{sensor}
+```
+
+**Query Parameters:**
+
+* `start` - Start day - Example: `2015-12-19`
+* `end` - End day - Example: `2015-12-20`
+
+**Response:**
+```json
+[
+    {
+        "id": 7,
+        "sensor": "home",
+        "day": "2015-12-21T00:00:00",
+        "avg_temp": 73.3439,
+        "avg_humidity": 35.1585,
+        "avg_pressure": 982.4764,
+        "min_temp": 71.9600,
+        "min_humidity": 30.9000,
+        "min_pressure": 981.3000,
+        "max_temp": 75.9200,
+        "max_humidity": 37.9400,
+        "max_pressure": 984.2600
+    }
+]
+```
+
+**Status Codes:**
+* `200` if successful
+* `400` if invalid query parameters
+* `401` if invalid credentials
+
+
 ### Get a list of hourly stats
 
 **GET:**
 ```
-/v1/stats/hourly
+/v1/stats/hourly/{sensor}
 ```
 
 **Query Parameters:**
