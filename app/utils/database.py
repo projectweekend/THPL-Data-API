@@ -11,6 +11,8 @@ def database_connection():
     port = parsed.port
     database = parsed.path.strip('/')
 
+    # return JSON as strings instead of converting to Python objects
+    psycopg2.extras.register_default_json(loads=lambda x: x)
     connection = psycopg2.connect(host=host, port=port, user=user, password=password, database=database)
     connection.set_session(autocommit=True)
 

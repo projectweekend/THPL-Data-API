@@ -60,7 +60,7 @@ class APITestCase(TestBase):
             body=json.dumps(data),
             **kwargs)
         try:
-            return json.loads(result[0])
+            return json.loads(result[0].decode('utf-8'))
         except IndexError:
             return None
 
