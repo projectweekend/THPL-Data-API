@@ -1,7 +1,7 @@
 import json
 
 from falcon.testing import TestBase
-from app import api, db
+from app import api
 from app.config import API_KEY, CONTENT_TYPE_METHODS
 
 
