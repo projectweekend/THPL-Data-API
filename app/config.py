@@ -6,7 +6,7 @@ assert API_KEY
 
 CONTENT_TYPE_METHODS = ('POST', 'PUT', 'PATCH', )
 
-DATABASE_URL = os.getenv('DATABASE_URL')
+DATABASE_URL = os.getenv('THPL_API_DATABASE_URL')
 if DATABASE_URL is None:
     compose_database_host = os.getenv('DB_PORT_5432_TCP_ADDR')
     assert compose_database_host

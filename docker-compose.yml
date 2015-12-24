@@ -7,10 +7,12 @@ web:
     command: gunicorn --reload -b 0.0.0.0:5000 app:api
     volumes:
         - .:/src
+    env_file:
+        - ./compose_local.env
     ports:
         - "5000:5000"
     links:
         - db
     environment:
         API_KEY: whatever
-        DATABASE_URL:
+        THPL_API_DATABASE_URL:
