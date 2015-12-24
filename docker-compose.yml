@@ -13,3 +13,4 @@ web:
         - db
     environment:
         API_KEY: whatever
+        DATABASE_URL:
