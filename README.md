@@ -5,9 +5,9 @@ Serving data from THPL-Data-Logger (https://github.com/projectweekend/THPL-Data-
 Environment Variables
 ====================
 
-There are just a couple of configurations managed as environment variables. In the development environment, these are injected by Docker Compose and managed in the `docker-compose.yml` file.
+There are just a couple of configurations managed as environment variables. In the development environment, these are injected by Docker Compose and managed from an `env_file` specified in the `docker-compose.yml` file.
 
-* `DATABASE_URL` - This is the connection URL for the PostgreSQL database. It is not used in the **development environment**.
+* `THPL_API_DATABASE_URL` - This is the connection URL for the PostgreSQL database.
 * `API_KEY` - This is the API key for the `X-API-KEY` header.
 
 

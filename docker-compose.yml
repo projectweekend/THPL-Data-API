@@ -13,6 +13,3 @@ web:
         - "5000:5000"
     links:
         - db
-    environment:
-        API_KEY: whatever
-        THPL_API_DATABASE_URL:
