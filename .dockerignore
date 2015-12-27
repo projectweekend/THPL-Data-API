@@ -7,3 +7,5 @@ README.md
 docker-compose.yml
 LICENSE
 compose_local.env
+cover/
+coverage.xml

@@ -7,3 +7,5 @@ ADD . /src/
 WORKDIR /src
 
 EXPOSE 5000
+
+ENTRYPOINT ["gunicorn", "--reload", "-b", "0.0.0.0:5000", "app:api"]

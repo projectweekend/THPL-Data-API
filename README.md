@@ -21,6 +21,20 @@ docker-compose run web nosetests -v --with-coverage --cover-package=app --cover-
 ```
 
 
+Pull Docker Image
+====================
+
+```
+docker pull projectweekend/thpl-data-api
+```
+
+Run using Docker Image
+====================
+
+```
+docker run -it -p 5000:5000 -e API_KEY=whatever -e THPL_API_DATABASE_URL=postgres://user:password@dbhost:5432/dbname projectweekend/thpl-data-api
+```
+
 
 Routes
 ====================
