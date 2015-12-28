@@ -39,6 +39,34 @@ docker run -it -p 5000:5000 -e API_KEY=whatever -e THPL_API_DATABASE_URL=postgre
 Routes
 ====================
 
+### Get a latest reading
+
+**GET:**
+```
+/v1/sensor/{sensor}
+```
+
+**Response:**
+```json
+{
+    "id": 272488,
+    "sensor": "home",
+    "temp_f": 71.0600,
+    "temp_c": 21.7000,
+    "humidity": 28.7000,
+    "pressure": 1003.7500,
+    "luminosity": 18.0000,
+    "logged_at": "2015-12-28T03:31:42.800839"
+}
+```
+
+**Status Codes:**
+* `200` if successful
+* `400` if invalid query parameters
+* `401` if invalid credentials
+* `404` if not found
+
+
 ### Get a list of daily stats
 
 **GET:**
@@ -75,6 +103,7 @@ Routes
 * `200` if successful
 * `400` if invalid query parameters
 * `401` if invalid credentials
+* `404` if not found
 
 
 ### Get a list of hourly stats
@@ -113,3 +142,4 @@ Routes
 * `200` if successful
 * `400` if invalid query parameters
 * `401` if invalid credentials
+* `404` if not found

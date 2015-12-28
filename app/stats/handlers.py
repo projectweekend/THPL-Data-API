@@ -3,6 +3,16 @@ from app.stats import data
 from app.stats.hooks import validate_query_params
 
 
+class LatestReadingResource(object):
+
+    def on_get(self, req, res, sensor):
+        result = data.latest_reading(sensor=sensor)
+        if result is None:
+            raise falcon.HTTPNotFound
+        res.status = falcon.HTTP_200
+        res.body = result
+
+
 class HourlyStatsResource(object):
 
     @falcon.before(validate_query_params)

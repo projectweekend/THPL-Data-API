@@ -10,7 +10,7 @@ def latest_reading(sensor):
         ORDER BY    logged_at DESC
         LIMIT       1
     )
-    SELECT      JSON_AGG(result.*)
+    SELECT      ROW_TO_JSON(result.*)
     FROM        result;
     """
     with db.cursor() as cursor:
